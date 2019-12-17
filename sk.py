@@ -3,6 +3,8 @@ import os
 list=["rsa","aes128", "des3"]
 list1=["1024","2048","4096"]
 list2=[]
+list3=["16B.txt","100KB.txt","5MB.txt"]
+list4=[]
 suma=0.0
 pomc = ""
 pomc1 =""
@@ -14,7 +16,7 @@ for i in range(3):
 			stdout,stderr = temp.communicate()
 			#print stdout
 			for line in stdout.splitlines():
-				#lineres = libLAPFF.parseLine(line)
+			#lineres = libLAPFF.parseLine(line)
 				if line[len(line)-1] == 'k':
 					for z in range(len(line)):
 						if  (z<4):
@@ -32,3 +34,29 @@ for i in range(3):
 		suma=suma/100
 		list2.append(suma)
 print list2
+suma=0.0
+
+for i in range(3):
+	for j in range(3):
+		for k in range(3):
+			for  x in range(100):
+				temp = subprocess.Popen(['time','openssl','rsa','-in','pliki_klucze/'+list[i]+list1[j]+'.txt','-passin','pass:dupa','-out',list3[k]],stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+				stdout,stderr = temp.communicate()
+				for line in stdout.splitlines():
+					if line[len(line)-1] == 'k':
+                                        	for z in range(len(line)):
+                                                	if  (z<4):
+                                                        	pomc+=line[z]
+                                                	if z>8 and z<13:
+                                                        	pomc1+=line[z]
+                                                	if z ==  13:
+                                                        	break
+						break
+				suma+=float(pomc)
+				suma+=float(pomc1)
+				print pomc+' '+pomc1+' '+list[i]+' '+list1[j]+' '+str(k)
+				pomc = ""
+				pomc1 = ""
+			suma=suma/100
+			list4.append(suma)
+print list4
