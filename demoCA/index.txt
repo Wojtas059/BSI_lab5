@@ -1,1 +1,2 @@
-V	201217114323Z		2443	unknown	/C=PL/ST=CCCP/O=PZPR/OU=ZMP/CN=pliklabserver.com/emailAddress=wojtas28@spoko.pl
+V	201218100157Z		2443	unknown	/C=PL/ST=Texas/O=ZHP/OU=ZMP/CN=pliklabserver.com/emailAddress=wojtas28@spoko.pl
+V	201218104137Z		2444	unknown	/C=PL/ST=Texas/L=Lublin/O=ZHP/OU=ZMP/CN=pliklabserver.com/emailAddress=wojtas28@spoko.pl
